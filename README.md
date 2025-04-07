@@ -18,6 +18,8 @@ Set-up de votre environnement de travail pour vous préparer à 42
 
 ## Installations à faire
 
+Ce fichier a été conçu pour un environnement Linux, il se peut que certaines adaptations soient nécéssaires pour les appliquer aux environnements MacOS et Windows.
+
 ### OhMyZSH
 
 Le terminal sera votre outil à maitriser pour naviguer, déplacer, récupérer et envoyer tous les exercices, mais aussi lors des exams.
@@ -46,6 +48,11 @@ sudo apt install zsh
 #### OhMyZSH
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+Après avoir installer OhMyZSH vous devez redémarrer l'ordinateur. Vous pouvez le faire du terminal avec la commande suivante :
+```bash
+reboot
 ```
 
 ### Vim
@@ -164,9 +171,64 @@ noremap <F2> :update<CR>:execute 'silent !bash -c ''setsid x-terminal-emulator -
 
 ### Header 42
 
-## Racourcis
-### "F2" dans vim pour lancer la norminette
-### Raccourcis ZSH
+Afin que votre code soit aux normes, vous aurez besoin d'installer également l'en-tête de 42 qui vous permettra également de vérifier le nom de vos fichiers.
+Ce header devra être ajouter dans tous vos fichiers `.c` et `.h`.
+
+Pour installer le header 42 créer un nouveau fichier 
+
+```bash
+mkdir -p ~/.vim/plugin
+cd $_
+git clone  stdheader.vim 
+```
+
+Ouvrez un fichier avec vim et appuyer sur `F1` pour créer votre header automatique.
+Vous pouvez également l'ajouter dans vim en sortant des différents modes (Insertion, Visual...) avec `ESC` et en écrivant `:Stdheader`.
+
+### Batcat (lecteur de fichiers)
+
+Afin de lire l'ensemble des fichiers d'un dossier et de ses sous-dossiers, vous pouvez utiliser une commande pour lancer `Batcat`.
+
+Pour l'installer lancer la commande suivante : 
+```bash
+sudo apt install bat -y
+```
+
+### Alias ZSH
+
+Avec ZSH vous pouvez créer des raccourcis (alias) qui vous permettront de gagner du temps avec de courtes lignes de commandes personnalisées.
+
+```bash
+vim ~/.zshrc
+```
+
+Une fois dans votre fichier `.zshrc` vous pouvez decendre tout en bas de votre fichier et écrire les prototypes qui peuvent vous intéresser de la façon suivante : 
+
+```vim
+alias nom_alias="commande en bash"
+```
+
+Voici une liste de quelques alias utile pour la piscine 42 :
+
+```vim
+alias ccc="cc -Wall -Wextra -Werror *.c"              " Compile avec les flags (qui considèrent les warnings comme des erreurs) tous les fichiers .c
+alias gfr="git fetch && git rebase origin/main"       " Permet de récupérer tous les fichiers du repo distant de la branche origin/main
+alias maj="sudo apt update && sudo apt upgrade -y"    " Mettre à jour votre ordinateur
+alias bat="find . -type f | xargs batcat"             " Affiche l'ensemble des fichiers dans un répertoire et ses sous-repertoires
+```
+
+Après avoir modifier votre fichier `.zshrc` pensez à l'appliquer lançant la commande suivante sur votre terminal : 
+```bash
+source ~/zshrc
+```
+
+Une autre méthode existante pour modifier un fichier est d'utiliser `echo` directement du terminal. Si vous voulez ajouter l'ensemble, voici les commandes à entrer pour ajouter vos alias sur votre fichier `zshrc`. Ces lignes de commandes appliqueront aussi le `source ~/.zshrc`.
+```bash
+echo 'ccc="cc -Wall -Wextra -Werror *.c' >> ~/.zshrc && source ~/.zshrc
+echo 'gfr="git fetch && git rebase origin/main"' >> ~/.zshrc && source ~/.zshrc
+echo 'maj="sudo apt update && sudo apt upgrade -y"' >> ~/.zshrc && source ~/.zshrc
+echo 'alias bat="find . -type f | xargs batcat"' >> ~/.zshrc && source ~/.zshrc
+```
 
 ## Procédures GIT
 ### Initialisation d'un projet
