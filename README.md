@@ -60,53 +60,54 @@ vim ~/.vimrc
 Exemple de configuration de base :
 
 ```vim
-set tabstop=4
-set shiftwidth=4
-set noexpandtab
-set autoindent
-set number
-set cindent
+set tabstop=4            " Largeur d'une tabulation = 4 espaces (affichage)
+set shiftwidth=4         " Indentation automatique = 4 espaces
+set noexpandtab          " Utiliser de vraies tabulations (\t), pas des espaces
+set autoindent           " Reprend l'indentation de la ligne précédente
+set number               " Affiche les numéros de ligne
+set cindent              " Active l'indentation de style C (structurée)
 ```
 
 Configuration plus complète :
 
 ```vim
 " INDENTATION
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set noexpandtab
-set autoindent
-set smartindent
-set cindent
+set tabstop=4              " Nombre d'espaces pour une tabulation (affichage)
+set shiftwidth=4           " Nombre d'espaces pour une indentation automatique
+set softtabstop=4          " Nombre d'espaces insérés/supprimés avec Tab/Backspace
+set noexpandtab            " Utilise des tabulations réelles (caractère \t)
+set autoindent             " Reprend l'indentation de la ligne précédente
+set smartindent            " Indentation automatique intelligente
+set cindent                " Indentation de style C (structurée, blocs, etc.)
 
 " AFFICHAGE
-set number
-set relativenumber
-set cursorline
-set showcmd
-set showmode
-set ruler
-syntax on
-set background=dark
+set number                 " Affiche les numéros de ligne
+set relativenumber         " Numérotation relative (utile pour les déplacements)
+set cursorline             " Surligne la ligne courante
+set showcmd                " Affiche les commandes tapées en bas
+set showmode               " Affiche le mode actif (INSERT, VISUAL, etc.)
+set ruler                  " Affiche la position du curseur (ligne/colonne)
+syntax on                  " Active la coloration syntaxique
+set background=dark        " Optimisé pour un thème sombre (ou 'light' si besoin)
 
 " RECHERCHE
-set ignorecase
-set smartcase
-set incsearch
-set hlsearch
+set ignorecase             " Ignore la casse dans les recherches
+set smartcase              " Mais respecte la casse si vous utilisez une majuscule
+set incsearch              " Recherche incrémentale (au fur et à mesure de la frappe)
+set hlsearch               " Met en surbrillance tous les résultats
 
 " FICHIERS ET SAUVEGARDE
-set autoread
-set nobackup
-set nowritebackup
-set noswapfile
+set autoread               " Recharge le fichier s’il a été modifié ailleurs
+set nobackup               " Ne crée pas de fichier de sauvegarde (.bak)
+set nowritebackup          " Pas de fichier de sauvegarde temporaire lors de l’écriture
+set noswapfile             " Ne crée pas de fichier d’échange (.swp)
 
 " CLAVIER ET COMMANDES
-set wildmenu
-set clipboard=unnamedplus
-set mouse=a
-set ttyfast
+set wildmenu               " Menu d’autocomplétion dans la ligne de commande
+set clipboard=unnamedplus  " Partage le presse-papiers avec le système
+set mouse=a                " Active la souris (clics, sélection, etc.)
+set ttyfast                " Indique que le terminal est rapide (accélère le rendu)
+
 ```
 
 ---
@@ -184,7 +185,7 @@ alias maj="sudo apt update && sudo apt upgrade -y"
 alias bat="find . -type f | xargs batcat"
 ```
 
-Rechargez votre config :
+Rechargez votre config (afin d'appliquer les changements ordonnés) :
 
 ```bash
 source ~/.zshrc
