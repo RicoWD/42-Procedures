@@ -139,7 +139,7 @@ watch -n 1 norminette -R CheckForbiddenSourceHeader
 
 ```bash
 mkdir -p ~/.vim/after/plugin/
-echo "noremap <F2> :update<CR>:execute 'silent !bash -c ''setsid x-terminal-emulator -e bash -c "watch -n 1 norminette -R CheckForbiddenSourceHeader ' . shellescape(expand('%')) . '" >/dev/null 2>&1 < /dev/null &'''<CR>:redraw!<CR>" > ~/.vim/after/plugin/norminette.vim
+echo "noremap <F2> :update<CR>:execute 'silent !bash -c '\''setsid x-terminal-emulator -e bash -c \"watch -n 1 norminette -R CheckForbiddenSourceHeader ' . shellescape(expand(\"%\")) . '\" >/dev/null 2>&1 < /dev/null &'\''<CR>:redraw!<CR>" >> ~/.vim/after/plugin/norminette.vim
 ```
 
 ---
@@ -183,6 +183,7 @@ alias ccc="cc -Wall -Wextra -Werror *.c"
 alias gfr="git fetch && git rebase origin/main"
 alias maj="sudo apt update && sudo apt upgrade -y"
 alias bat="find . -type f | xargs batcat"
+alias c="clear"
 ```
 
 Rechargez votre config (afin d'appliquer les changements ordonnés) :
@@ -198,6 +199,8 @@ echo 'alias ccc="cc -Wall -Wextra -Werror *.c"' >> ~/.zshrc && source ~/.zshrc
 echo 'alias gfr="git fetch && git rebase origin/main"' >> ~/.zshrc && source ~/.zshrc
 echo 'alias maj="sudo apt update && sudo apt upgrade -y"' >> ~/.zshrc && source ~/.zshrc
 echo 'alias bat="find . -type f | xargs batcat"' >> ~/.zshrc && source ~/.zshrc
+echo 'alias c="clear"' >> ~/.zshrc && source ~/.zshrc
+
 ```
 
 ---
